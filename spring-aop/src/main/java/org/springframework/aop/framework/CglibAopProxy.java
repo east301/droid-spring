@@ -43,6 +43,7 @@ import org.springframework.cglib.proxy.CallbackFilter;
 import org.springframework.cglib.proxy.Dispatcher;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.Factory;
+import org.springframework.cglib.proxy.InterceptableEnhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 import org.springframework.cglib.proxy.NoOp;
@@ -232,7 +233,7 @@ class CglibAopProxy implements AopProxy, Serializable {
 	 * {@link Enhancer} implementation.
 	 */
 	protected Enhancer createEnhancer() {
-		return new Enhancer();
+		return new InterceptableEnhancer();
 	}
 
 	/**

@@ -37,6 +37,7 @@ import org.springframework.cglib.core.SpringNamingPolicy;
 import org.springframework.cglib.proxy.Callback;
 import org.springframework.cglib.proxy.CallbackFilter;
 import org.springframework.cglib.proxy.Enhancer;
+import org.springframework.cglib.proxy.InterceptableEnhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 import org.springframework.cglib.proxy.NoOp;
@@ -62,7 +63,7 @@ import org.springframework.util.ReflectionUtils;
  * @see #enhance
  * @see ConfigurationClassPostProcessor
  */
-class ConfigurationClassEnhancer {
+public class ConfigurationClassEnhancer {
 
 	// The callbacks to use. Note that these callbacks must be stateless.
 	private static final Callback[] CALLBACKS = new Callback[] {
@@ -79,6 +80,11 @@ class ConfigurationClassEnhancer {
 
 	private static final Log logger = LogFactory.getLog(ConfigurationClassEnhancer.class);
 
+	private static ConfigurationClassEnhancerCallback CALLBACK = null;
+
+	public static void setCallback(ConfigurationClassEnhancerCallback callback) {
+		CALLBACK = callback;
+	}
 
 	/**
 	 * Loads the specified class and generates a CGLIB subclass of it equipped with
@@ -97,7 +103,9 @@ class ConfigurationClassEnhancer {
 			}
 			return configClass;
 		}
-		Class<?> enhancedClass = createClass(newEnhancer(configClass));
+		Class<?> enhancedClass = CALLBACK != null
+				? CALLBACK.getEnhancedClass(configClass)
+				: createClass(newEnhancer(configClass));
 		if (logger.isDebugEnabled()) {
 			logger.debug(String.format("Successfully enhanced %s; enhanced class name is: %s",
 					configClass.getName(), enhancedClass.getName()));
@@ -109,7 +117,7 @@ class ConfigurationClassEnhancer {
 	 * Creates a new CGLIB {@link Enhancer} instance.
 	 */
 	private Enhancer newEnhancer(Class<?> superclass) {
-		Enhancer enhancer = new Enhancer();
+		Enhancer enhancer = new InterceptableEnhancer();
 		enhancer.setSuperclass(superclass);
 		enhancer.setInterfaces(new Class<?>[] {EnhancedConfiguration.class});
 		enhancer.setUseFactory(false);
@@ -368,7 +376,7 @@ class ConfigurationClassEnhancer {
 		private Object enhanceFactoryBean(Class<?> fbClass, final ConfigurableBeanFactory beanFactory,
 				final String beanName) throws InstantiationException, IllegalAccessException {
 
-			Enhancer enhancer = new Enhancer();
+			Enhancer enhancer = new InterceptableEnhancer();
 			enhancer.setSuperclass(fbClass);
 			enhancer.setUseFactory(false);
 			enhancer.setNamingPolicy(SpringNamingPolicy.INSTANCE);

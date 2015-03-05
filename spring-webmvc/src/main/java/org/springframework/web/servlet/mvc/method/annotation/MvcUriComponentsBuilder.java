@@ -35,6 +35,7 @@ import org.springframework.cglib.core.SpringNamingPolicy;
 import org.springframework.cglib.proxy.Callback;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.Factory;
+import org.springframework.cglib.proxy.InterceptableEnhancer;
 import org.springframework.cglib.proxy.MethodProxy;
 import org.springframework.core.DefaultParameterNameDiscoverer;
 import org.springframework.core.MethodParameter;
@@ -440,7 +441,7 @@ public class MvcUriComponentsBuilder extends UriComponentsBuilder {
 			return (T) factory.getProxy();
 		}
 		else {
-			Enhancer enhancer = new Enhancer();
+			Enhancer enhancer = new InterceptableEnhancer();
 			enhancer.setSuperclass(type);
 			enhancer.setInterfaces(new Class<?>[] {MethodInvocationInfo.class});
 			enhancer.setNamingPolicy(SpringNamingPolicy.INSTANCE);

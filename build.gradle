@@ -24,8 +24,8 @@ ext {
 }
 
 configure(allprojects) { project ->
-	group = "org.springframework"
-	version = qualifyVersionIfNecessary(version)
+	group = "net.east301.droid-spring"
+	version = "4.1.5.RELEASE.DROIDSPRING"
 
 	ext.aspectjVersion       = "1.8.5"
 	ext.eclipseLinkVersion   = "2.4.2"
