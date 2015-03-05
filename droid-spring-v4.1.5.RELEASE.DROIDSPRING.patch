@@ -1,0 +1,534 @@
+diff --git a/README.md b/README.md
+index 7117a73..04d2446 100644
+--- a/README.md
++++ b/README.md
+@@ -1,101 +1,5 @@
+-## Spring Framework
+-The Spring Framework provides a comprehensive programming and configuration
+-model for modern Java-based enterprise applications - on any kind of deployment
+-platform. A key element of Spring is infrastructural support at the application
+-level: Spring focuses on the "plumbing" of enterprise applications so that teams
+-can focus on application-level business logic, without unnecessary ties to
+-specific deployment environments.
++droid-spring
++============
+ 
+-The framework also serves as the foundation for [Spring Integration][], [Spring
+-Batch][] and the rest of the Spring [family of projects][]. Browse the repositories
+-under the [Spring organization][] on GitHub for a full list.
++This is an attempt to run Spring Framework on Android.
+ 
+-## Downloading Artifacts
+-See [downloading Spring artifacts][] for Maven repository information. Unable to
+-use Maven or other transitive dependency management tools? See [building a
+-distribution with dependencies][].
+-
+-## Documentation
+-See the current [Javadoc][] and [reference docs][].
+-
+-## Getting Support
+-Check out the [Spring forums][] and the [spring][spring tag] and
+-[spring-mvc][spring-mvc tag] tags on [Stack Overflow][]. [Commercial support][]
+-is available too.
+-
+-## Issue Tracking
+-Report issues via the [Spring Framework JIRA]. Understand our issue management
+-process by reading about [the lifecycle of an issue][]. Think you've found a
+-bug? Please consider submitting a reproduction project via the
+-[spring-framework-issues][] GitHub repository. The [readme][] there provides
+-simple step-by-step instructions.
+-
+-## Building from Source
+-The Spring Framework uses a [Gradle][]-based build system. In the instructions
+-below, [`./gradlew`][] is invoked from the root of the source tree and serves as
+-a cross-platform, self-contained bootstrap mechanism for the build.
+-
+-### Prerequisites
+-
+-[Git][] and [JDK 8 update 20 or later][JDK8 build]
+-
+-Be sure that your `JAVA_HOME` environment variable points to the `jdk1.8.0` folder
+-extracted from the JDK download.
+-
+-### Check out sources
+-`git clone git@github.com:spring-projects/spring-framework.git`
+-
+-### Import sources into your IDE
+-Run `./import-into-eclipse.sh` or read `import-into-idea.md` as appropriate.
+-> **Note:** Per the prerequisites above, ensure that you have JDK 8 configured properly in your IDE.
+-
+-### Install all spring-\* jars into your local Maven cache
+-`./gradlew install`
+-
+-### Compile and test; build all jars, distribution zips, and docs
+-`./gradlew build`
+-
+-... and discover more commands with `./gradlew tasks`. See also the [Gradle
+-build and release FAQ][].
+-
+-## Contributing
+-[Pull requests][] are welcome; see the [contributor guidelines][] for details.
+-
+-## Staying in Touch
+-Follow [@SpringCentral][] as well as [@SpringFramework][] and its [team members][]
+-on Twitter. In-depth articles can be found at [The Spring Blog][], and releases
+-are announced via our [news feed][].
+-
+-## License
+-The Spring Framework is released under version 2.0 of the [Apache License][].
+-
+-[Spring Integration]: https://github.com/spring-projects/spring-integration
+-[Spring Batch]: https://github.com/spring-projects/spring-batch
+-[family of projects]: http://spring.io/projects
+-[Spring organization]: https://github.com/spring-projects
+-[downloading Spring artifacts]: https://github.com/spring-projects/spring-framework/wiki/Downloading-Spring-artifacts
+-[building a distribution with dependencies]: https://github.com/spring-projects/spring-framework/wiki/Building-a-distribution-with-dependencies
+-[Javadoc]: http://docs.spring.io/spring-framework/docs/current/javadoc-api/
+-[reference docs]: http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/
+-[Spring forums]: http://forum.spring.io/
+-[spring tag]: http://stackoverflow.com/questions/tagged/spring
+-[spring-mvc tag]: http://stackoverflow.com/questions/tagged/spring-mvc
+-[Stack Overflow]: http://stackoverflow.com/faq
+-[Commercial support]: http://spring.io/services
+-[Spring Framework JIRA]: https://jira.spring.io/browse/SPR
+-[the lifecycle of an issue]: https://github.com/spring-projects/spring-framework/wiki/The-Lifecycle-of-an-Issue
+-[spring-framework-issues]: https://github.com/spring-projects/spring-framework-issues#readme
+-[readme]: https://github.com/spring-projects/spring-framework-issues#readme
+-[Gradle]: http://gradle.org
+-[`./gradlew`]: http://vimeo.com/34436402
+-[Git]: http://help.github.com/set-up-git-redirect
+-[JDK8 build]: http://www.oracle.com/technetwork/java/javase/downloads
+-[Gradle build and release FAQ]: https://github.com/spring-projects/spring-framework/wiki/Gradle-build-and-release-FAQ
+-[Pull requests]: http://help.github.com/send-pull-requests
+-[contributor guidelines]: https://github.com/spring-projects/spring-framework/blob/master/CONTRIBUTING.md
+-[@SpringFramework]: https://twitter.com/springframework
+-[@SpringCentral]: https://twitter.com/springcentral
+-[team members]: https://twitter.com/springframework/lists/team/members
+-[The Spring Blog]: http://spring.io/blog/
+-[news feed]: http://spring.io/blog/category/news
+-[Apache License]: http://www.apache.org/licenses/LICENSE-2.0
+diff --git a/README.orig.md b/README.orig.md
+new file mode 100644
+index 0000000..7117a73
+--- /dev/null
++++ b/README.orig.md
+@@ -0,0 +1,101 @@
++## Spring Framework
++The Spring Framework provides a comprehensive programming and configuration
++model for modern Java-based enterprise applications - on any kind of deployment
++platform. A key element of Spring is infrastructural support at the application
++level: Spring focuses on the "plumbing" of enterprise applications so that teams
++can focus on application-level business logic, without unnecessary ties to
++specific deployment environments.
++
++The framework also serves as the foundation for [Spring Integration][], [Spring
++Batch][] and the rest of the Spring [family of projects][]. Browse the repositories
++under the [Spring organization][] on GitHub for a full list.
++
++## Downloading Artifacts
++See [downloading Spring artifacts][] for Maven repository information. Unable to
++use Maven or other transitive dependency management tools? See [building a
++distribution with dependencies][].
++
++## Documentation
++See the current [Javadoc][] and [reference docs][].
++
++## Getting Support
++Check out the [Spring forums][] and the [spring][spring tag] and
++[spring-mvc][spring-mvc tag] tags on [Stack Overflow][]. [Commercial support][]
++is available too.
++
++## Issue Tracking
++Report issues via the [Spring Framework JIRA]. Understand our issue management
++process by reading about [the lifecycle of an issue][]. Think you've found a
++bug? Please consider submitting a reproduction project via the
++[spring-framework-issues][] GitHub repository. The [readme][] there provides
++simple step-by-step instructions.
++
++## Building from Source
++The Spring Framework uses a [Gradle][]-based build system. In the instructions
++below, [`./gradlew`][] is invoked from the root of the source tree and serves as
++a cross-platform, self-contained bootstrap mechanism for the build.
++
++### Prerequisites
++
++[Git][] and [JDK 8 update 20 or later][JDK8 build]
++
++Be sure that your `JAVA_HOME` environment variable points to the `jdk1.8.0` folder
++extracted from the JDK download.
++
++### Check out sources
++`git clone git@github.com:spring-projects/spring-framework.git`
++
++### Import sources into your IDE
++Run `./import-into-eclipse.sh` or read `import-into-idea.md` as appropriate.
++> **Note:** Per the prerequisites above, ensure that you have JDK 8 configured properly in your IDE.
++
++### Install all spring-\* jars into your local Maven cache
++`./gradlew install`
++
++### Compile and test; build all jars, distribution zips, and docs
++`./gradlew build`
++
++... and discover more commands with `./gradlew tasks`. See also the [Gradle
++build and release FAQ][].
++
++## Contributing
++[Pull requests][] are welcome; see the [contributor guidelines][] for details.
++
++## Staying in Touch
++Follow [@SpringCentral][] as well as [@SpringFramework][] and its [team members][]
++on Twitter. In-depth articles can be found at [The Spring Blog][], and releases
++are announced via our [news feed][].
++
++## License
++The Spring Framework is released under version 2.0 of the [Apache License][].
++
++[Spring Integration]: https://github.com/spring-projects/spring-integration
++[Spring Batch]: https://github.com/spring-projects/spring-batch
++[family of projects]: http://spring.io/projects
++[Spring organization]: https://github.com/spring-projects
++[downloading Spring artifacts]: https://github.com/spring-projects/spring-framework/wiki/Downloading-Spring-artifacts
++[building a distribution with dependencies]: https://github.com/spring-projects/spring-framework/wiki/Building-a-distribution-with-dependencies
++[Javadoc]: http://docs.spring.io/spring-framework/docs/current/javadoc-api/
++[reference docs]: http://docs.spring.io/spring-framework/docs/current/spring-framework-reference/
++[Spring forums]: http://forum.spring.io/
++[spring tag]: http://stackoverflow.com/questions/tagged/spring
++[spring-mvc tag]: http://stackoverflow.com/questions/tagged/spring-mvc
++[Stack Overflow]: http://stackoverflow.com/faq
++[Commercial support]: http://spring.io/services
++[Spring Framework JIRA]: https://jira.spring.io/browse/SPR
++[the lifecycle of an issue]: https://github.com/spring-projects/spring-framework/wiki/The-Lifecycle-of-an-Issue
++[spring-framework-issues]: https://github.com/spring-projects/spring-framework-issues#readme
++[readme]: https://github.com/spring-projects/spring-framework-issues#readme
++[Gradle]: http://gradle.org
++[`./gradlew`]: http://vimeo.com/34436402
++[Git]: http://help.github.com/set-up-git-redirect
++[JDK8 build]: http://www.oracle.com/technetwork/java/javase/downloads
++[Gradle build and release FAQ]: https://github.com/spring-projects/spring-framework/wiki/Gradle-build-and-release-FAQ
++[Pull requests]: http://help.github.com/send-pull-requests
++[contributor guidelines]: https://github.com/spring-projects/spring-framework/blob/master/CONTRIBUTING.md
++[@SpringFramework]: https://twitter.com/springframework
++[@SpringCentral]: https://twitter.com/springcentral
++[team members]: https://twitter.com/springframework/lists/team/members
++[The Spring Blog]: http://spring.io/blog/
++[news feed]: http://spring.io/blog/category/news
++[Apache License]: http://www.apache.org/licenses/LICENSE-2.0
+diff --git a/build.gradle b/build.gradle
+index cb7a6a1..1045b71 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -24,8 +24,8 @@ ext {
+ }
+ 
+ configure(allprojects) { project ->
+-	group = "org.springframework"
+-	version = qualifyVersionIfNecessary(version)
++	group = "net.east301.droid-spring"
++	version = "4.1.5.RELEASE.DROIDSPRING"
+ 
+ 	ext.aspectjVersion       = "1.8.5"
+ 	ext.eclipseLinkVersion   = "2.4.2"
+diff --git a/spring-aop/src/main/java/org/springframework/aop/framework/CglibAopProxy.java b/spring-aop/src/main/java/org/springframework/aop/framework/CglibAopProxy.java
+index f60b5d3..5064843 100644
+--- a/spring-aop/src/main/java/org/springframework/aop/framework/CglibAopProxy.java
++++ b/spring-aop/src/main/java/org/springframework/aop/framework/CglibAopProxy.java
+@@ -43,6 +43,7 @@ import org.springframework.cglib.proxy.CallbackFilter;
+ import org.springframework.cglib.proxy.Dispatcher;
+ import org.springframework.cglib.proxy.Enhancer;
+ import org.springframework.cglib.proxy.Factory;
++import org.springframework.cglib.proxy.InterceptableEnhancer;
+ import org.springframework.cglib.proxy.MethodInterceptor;
+ import org.springframework.cglib.proxy.MethodProxy;
+ import org.springframework.cglib.proxy.NoOp;
+@@ -232,7 +233,7 @@ class CglibAopProxy implements AopProxy, Serializable {
+ 	 * {@link Enhancer} implementation.
+ 	 */
+ 	protected Enhancer createEnhancer() {
+-		return new Enhancer();
++		return new InterceptableEnhancer();
+ 	}
+ 
+ 	/**
+diff --git a/spring-beans/src/main/java/org/springframework/beans/factory/support/CglibSubclassingInstantiationStrategy.java b/spring-beans/src/main/java/org/springframework/beans/factory/support/CglibSubclassingInstantiationStrategy.java
+index ed8d5a3..8cfabf7 100644
+--- a/spring-beans/src/main/java/org/springframework/beans/factory/support/CglibSubclassingInstantiationStrategy.java
++++ b/spring-beans/src/main/java/org/springframework/beans/factory/support/CglibSubclassingInstantiationStrategy.java
+@@ -30,6 +30,7 @@ import org.springframework.cglib.proxy.Callback;
+ import org.springframework.cglib.proxy.CallbackFilter;
+ import org.springframework.cglib.proxy.Enhancer;
+ import org.springframework.cglib.proxy.Factory;
++import org.springframework.cglib.proxy.InterceptableEnhancer;
+ import org.springframework.cglib.proxy.MethodInterceptor;
+ import org.springframework.cglib.proxy.MethodProxy;
+ import org.springframework.cglib.proxy.NoOp;
+@@ -138,7 +139,7 @@ public class CglibSubclassingInstantiationStrategy extends SimpleInstantiationSt
+ 		 * definition, using CGLIB.
+ 		 */
+ 		private Class<?> createEnhancedSubclass(RootBeanDefinition beanDefinition) {
+-			Enhancer enhancer = new Enhancer();
++			Enhancer enhancer = new InterceptableEnhancer();
+ 			enhancer.setSuperclass(beanDefinition.getBeanClass());
+ 			enhancer.setNamingPolicy(SpringNamingPolicy.INSTANCE);
+ 			enhancer.setCallbackFilter(new MethodOverrideCallbackFilter(beanDefinition));
+diff --git a/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancer.java b/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancer.java
+index fd1854d..7ab70de 100644
+--- a/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancer.java
++++ b/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancer.java
+@@ -37,6 +37,7 @@ import org.springframework.cglib.core.SpringNamingPolicy;
+ import org.springframework.cglib.proxy.Callback;
+ import org.springframework.cglib.proxy.CallbackFilter;
+ import org.springframework.cglib.proxy.Enhancer;
++import org.springframework.cglib.proxy.InterceptableEnhancer;
+ import org.springframework.cglib.proxy.MethodInterceptor;
+ import org.springframework.cglib.proxy.MethodProxy;
+ import org.springframework.cglib.proxy.NoOp;
+@@ -62,7 +63,7 @@ import org.springframework.util.ReflectionUtils;
+  * @see #enhance
+  * @see ConfigurationClassPostProcessor
+  */
+-class ConfigurationClassEnhancer {
++public class ConfigurationClassEnhancer {
+ 
+ 	// The callbacks to use. Note that these callbacks must be stateless.
+ 	private static final Callback[] CALLBACKS = new Callback[] {
+@@ -79,6 +80,11 @@ class ConfigurationClassEnhancer {
+ 
+ 	private static final Log logger = LogFactory.getLog(ConfigurationClassEnhancer.class);
+ 
++	private static ConfigurationClassEnhancerCallback CALLBACK = null;
++
++	public static void setCallback(ConfigurationClassEnhancerCallback callback) {
++		CALLBACK = callback;
++	}
+ 
+ 	/**
+ 	 * Loads the specified class and generates a CGLIB subclass of it equipped with
+@@ -97,7 +103,9 @@ class ConfigurationClassEnhancer {
+ 			}
+ 			return configClass;
+ 		}
+-		Class<?> enhancedClass = createClass(newEnhancer(configClass));
++		Class<?> enhancedClass = CALLBACK != null
++				? CALLBACK.getEnhancedClass(configClass)
++				: createClass(newEnhancer(configClass));
+ 		if (logger.isDebugEnabled()) {
+ 			logger.debug(String.format("Successfully enhanced %s; enhanced class name is: %s",
+ 					configClass.getName(), enhancedClass.getName()));
+@@ -109,7 +117,7 @@ class ConfigurationClassEnhancer {
+ 	 * Creates a new CGLIB {@link Enhancer} instance.
+ 	 */
+ 	private Enhancer newEnhancer(Class<?> superclass) {
+-		Enhancer enhancer = new Enhancer();
++		Enhancer enhancer = new InterceptableEnhancer();
+ 		enhancer.setSuperclass(superclass);
+ 		enhancer.setInterfaces(new Class<?>[] {EnhancedConfiguration.class});
+ 		enhancer.setUseFactory(false);
+@@ -368,7 +376,7 @@ class ConfigurationClassEnhancer {
+ 		private Object enhanceFactoryBean(Class<?> fbClass, final ConfigurableBeanFactory beanFactory,
+ 				final String beanName) throws InstantiationException, IllegalAccessException {
+ 
+-			Enhancer enhancer = new Enhancer();
++			Enhancer enhancer = new InterceptableEnhancer();
+ 			enhancer.setSuperclass(fbClass);
+ 			enhancer.setUseFactory(false);
+ 			enhancer.setNamingPolicy(SpringNamingPolicy.INSTANCE);
+diff --git a/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancerCallback.java b/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancerCallback.java
+new file mode 100644
+index 0000000..3c49f8f
+--- /dev/null
++++ b/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassEnhancerCallback.java
+@@ -0,0 +1,29 @@
++/*
++ * Copyright 2002-2014 the original author or authors.
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package org.springframework.context.annotation;
++
++/**
++ * Intercepts configuration class enhancement.
++ *
++ * @author Shu Tadaka
++ */
++@SuppressWarnings("rawtypes")
++public interface ConfigurationClassEnhancerCallback {
++
++    Class getEnhancedClass(Class original);
++
++}
+diff --git a/spring-core/src/main/java/org/springframework/cglib/proxy/InterceptableEnhancer.java b/spring-core/src/main/java/org/springframework/cglib/proxy/InterceptableEnhancer.java
+new file mode 100644
+index 0000000..967ce85
+--- /dev/null
++++ b/spring-core/src/main/java/org/springframework/cglib/proxy/InterceptableEnhancer.java
+@@ -0,0 +1,102 @@
++/*
++ * Copyright 2002-2015 the original author or authors.
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package org.springframework.cglib.proxy;
++
++import org.springframework.cglib.core.ClassGenerator;
++import org.springframework.cglib.core.GeneratorStrategy;
++
++/**
++ * Intercepts type creation of {@link org.springframework.cglib.proxy.Enhancer}.
++ *
++ * @author Shu Tadaka
++ */
++@SuppressWarnings("rawtypes")
++public class InterceptableEnhancer extends Enhancer {
++
++    private Class superClass = null;
++
++    private Class[] interfaces = null;
++
++    private byte[] generatedClassBytes = null;
++
++    private static InterceptableEnhancerCallback CALLBACK = null;
++
++    public static void setCallback(InterceptableEnhancerCallback callback) {
++        CALLBACK = callback;
++    }
++
++    @Override
++    public void setSuperclass(Class superclass) {
++        super.setSuperclass(superclass);
++        this.superClass = superclass;
++    }
++
++    @Override
++    public void setInterfaces(Class[] interfaces) {
++        super.setInterfaces(interfaces);
++        this.interfaces = interfaces;
++    }
++
++    @Override
++    public void setStrategy(GeneratorStrategy strategy) {
++        super.setStrategy(new GeneratorStrategyProxy(strategy));
++    }
++
++    @Override
++    public Object create() {
++        throw new RuntimeException("Not supported");
++    }
++
++    @Override
++    public Object create(Class[] argumentTypes, Object[] arguments) {
++        throw new RuntimeException("Not supported");
++    }
++
++    @Override
++    public synchronized Class createClass() {
++        //
++        if (!(getStrategy() instanceof GeneratorStrategyProxy)) {
++            setStrategy(new GeneratorStrategyProxy(getStrategy()));
++        }
++
++        //
++        Class result = super.createClass();
++        if (CALLBACK != null) {
++            CALLBACK.onClassCreated(this.superClass, this.interfaces, result, this.generatedClassBytes);
++        }
++
++        return result;
++    }
++
++    private class GeneratorStrategyProxy implements GeneratorStrategy {
++
++        public GeneratorStrategyProxy(GeneratorStrategy actualGeneratorStrategy) {
++            this.actualGeneratorStrategy = actualGeneratorStrategy;
++        }
++
++        @Override
++        public byte[] generate(ClassGenerator classGenerator) throws Exception {
++            byte[] result = this.actualGeneratorStrategy.generate(classGenerator);
++            InterceptableEnhancer.this.generatedClassBytes = result;
++            return result;
++        }
++
++        private final GeneratorStrategy actualGeneratorStrategy;
++
++    }
++
++}
+diff --git a/spring-core/src/main/java/org/springframework/cglib/proxy/InterceptableEnhancerCallback.java b/spring-core/src/main/java/org/springframework/cglib/proxy/InterceptableEnhancerCallback.java
+new file mode 100644
+index 0000000..0e50df3
+--- /dev/null
++++ b/spring-core/src/main/java/org/springframework/cglib/proxy/InterceptableEnhancerCallback.java
+@@ -0,0 +1,29 @@
++/*
++ * Copyright 2002-2015 the original author or authors.
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package org.springframework.cglib.proxy;
++
++/**
++ * Callback to intercept class creation of {@link org.springframework.cglib.proxy.InterceptableEnhancer}.
++ *
++ * @author Shu Tadaka
++ */
++@SuppressWarnings("rawtypes")
++public interface InterceptableEnhancerCallback {
++
++    void onClassCreated(Class superClass, Class[] interfaces, Class createdClass, byte[] createdClassBytes);
++
++}
+diff --git a/spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/MvcUriComponentsBuilder.java b/spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/MvcUriComponentsBuilder.java
+index abdc804..1fb0711 100644
+--- a/spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/MvcUriComponentsBuilder.java
++++ b/spring-webmvc/src/main/java/org/springframework/web/servlet/mvc/method/annotation/MvcUriComponentsBuilder.java
+@@ -35,6 +35,7 @@ import org.springframework.cglib.core.SpringNamingPolicy;
+ import org.springframework.cglib.proxy.Callback;
+ import org.springframework.cglib.proxy.Enhancer;
+ import org.springframework.cglib.proxy.Factory;
++import org.springframework.cglib.proxy.InterceptableEnhancer;
+ import org.springframework.cglib.proxy.MethodProxy;
+ import org.springframework.core.DefaultParameterNameDiscoverer;
+ import org.springframework.core.MethodParameter;
+@@ -440,7 +441,7 @@ public class MvcUriComponentsBuilder extends UriComponentsBuilder {
+ 			return (T) factory.getProxy();
+ 		}
+ 		else {
+-			Enhancer enhancer = new Enhancer();
++			Enhancer enhancer = new InterceptableEnhancer();
+ 			enhancer.setSuperclass(type);
+ 			enhancer.setInterfaces(new Class<?>[] {MethodInvocationInfo.class});
+ 			enhancer.setNamingPolicy(SpringNamingPolicy.INSTANCE);
